@@ -1,9 +1,28 @@
 
 # Fun updates related to ChatGPT
 
+# Apr, 2023
+
+- 02: prompt searching ([repo](https://github.com/MaHuanAAA/g_fair_prompting)), PromptInject ([repo](https://github.com/agencyenterprise/PromptInject)), prompt engineering guide ([blog](https://www.promptingguide.ai/zh))
+- 02: LMFlow ([blog](https://www.jiqizhixin.com/articles/2023-04-02), [repo](https://github.com/OptimalScale/LMFlow))
+- 01: Vicuna-13B, fine-tuning LLaMA on conversations from ShareGPT, 90% ChatGPT quality ([blog](https://vicuna.lmsys.org/))
+- 01: Alpaca-CoT ([repo](https://github.com/PhoebusSi/Alpaca-CoT))
+- 01: Official Apple Core ML Stable Diffusion Lib on M-series chips, ([repo](https://github.com/apple/ml-stable-diffusion), [MochiDiffusion](https://github.com/godly-devotion/MochiDiffusion), [swift-coreml-diffusers](https://github.com/huggingface/swift-coreml-diffusers))
+- 01: PolyglotSiri Apple Shortcut, ([tweet](https://twitter.com/Munntein/status/1641683629968592897), [repo](https://github.com/Munntein/PolyglotSiri-Apple-Shortcut))
+- 01: Twitter's Recommendation Algorithm ([repo](https://github.com/twitter/the-algorithm))
 
 # Mar, 2023
 
+- 31: Alpaca-LoRA-Serve gradio app ([tweet](https://twitter.com/algo_diver/status/1638525828773576704), [repo](https://github.com/deep-diver/Alpaca-LoRA-Serve))
+- 31: GPT4 UI generation ([tweet](https://twitter.com/gdb/status/1641496253572997123))
+- 31: ChatGPt outperform crowd-workers for text annotation tasks ([tweet](https://twitter.com/AlphaSignalAI/status/1641496876527517696))
+- 31: BloombergGPT, 50B LLM outperform existing models on financial tasks ([tweet](https://twitter.com/omarsar0/status/1641787456436547584))
+- 31: HuggingGPT, as an interface for LLMs to connect AI Models for solving comlicated AI tasks ([tweet](https://twitter.com/johnjnay/status/1641609645713129473))
+- 31: Llama-X ([repo](https://github.com/AetherCortex/Llama-X))
+- 30: ChatExplore ([tweet](https://twitter.com/omarsar0/status/1641444447304011776))
+- 30: ColossalChat, ([medium](https://medium.com/@yangyou_berkeley/colossalchat-an-open-source-solution-for-cloning-chatgpt-with-a-complete-rlhf-pipeline-5edf08fb538b), [tweet](https://twitter.com/omarsar0/status/1641070883497205761), [repo](https://github.com/hpcaitech/ColossalAI/blob/main/applications/Chat/inference/server.py))
+- 30: Chinese-LLaMA-Alpaca, ([repo](https://github.com/ymcui/Chinese-LLaMA-Alpaca))
+- 30: ChatGLM-6B, An Open Bilingual Dialogue Language Model ([repo](https://github.com/THUDM/ChatGLM-6B))
 - 29: Uncle Rabbit, the first conversational holographic AI ([tweet](https://twitter.com/ArturoJReal/status/1641129170100011035), [blog](https://feld.com/archives/2023/03/do-ai-rabbits-dream-of-holographic-carrots/))
 - 29: LLaMA-Adapter, fine-tuning LLaMA with 1.2M learnable parameters in 1 hour ([repo](https://github.com/ZrrSkywalker/LLaMA-Adapter))
 - 28: gpt4all, with ~800k GPT-3.5-Turbo Generations based on LLaMa ([repo](https://github.com/nomic-ai/gpt4all))
