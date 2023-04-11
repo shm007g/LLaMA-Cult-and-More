@@ -1,4 +1,17 @@
+# LLM Organizer - Keeping Track of Affordable Language Models
 
+This repository is dedicated to organizing affordable but powerful language models (LLMs). The repository providing valuable insights into the latest models, including number of parameters, fine-tuning datasets and techniques, and hardware specifications. With this repository, you can quickly and easily access all the vital information you need for your affordable LLM needs.
+
+# Model Spec (reformating)
+
+| date |   model   | param |   data   | finetune |  hardware | references |
+|------|-----------|--------|---------|-----------|-------------|-------------|
+|04/08| Vicuna-7B | 7B |
+|04/01| Vicuna-13B| 7B |
+|04/07|Chinese-LLaMA-Alpaca-13B| 13B |
+|03/28|Chinese-LLaMA-Alpaca-7B  | 7B |
+
+---
 
 # News about 🦙 Cult and other AIGC models
 
