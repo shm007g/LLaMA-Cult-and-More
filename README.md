@@ -1,4 +1,4 @@
-Chart version in chart.md.
+Chart version in [chart.md](./chart.md).
 
 
 # News about 🦙 Cult and other AIGC models
