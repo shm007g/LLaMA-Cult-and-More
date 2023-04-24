@@ -9,7 +9,7 @@
 - EleutherAI: GPT-J, GPT-NEO, GPT-NEOX, Pythia / Dolly
 - huggingface BigScience: BLOOM / BELLE
 - Meta: OPT, LLaMA / Alpaca, Vicuna
-- Microsoft: DeepSpeed Chat
+- Microsoft: DeepSpeedChat
 - ColossalAI: ColossalChat
 - Cerebras: Cerebras-GPT
 - Google: BERT, T5, Flan, PaLM, LaMDA
@@ -22,7 +22,7 @@
 
 |project|base model|data|finetune|hardware/Cost|
 |-------|-------------|-----|---------|----------|
-|[Stanford/Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)|LLaMA-7B|52K instruction-followling dataset, generate in **self-instruct** style using text-davinci-003|SFT|3 hours on 8 80GB A100s, $500(data) + $100(training)|
+|[Stanford/Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)|LLaMA-7B|52K instruction-followling dataset, generate in **self-instruct** style using text-davinci-003|SFT|3 hours on 8 80GB A100s, `$500(data) + $100(train)`|
 |[NLPCloud/instruct-gpt-j](https://nlpcloud.com/instruct-version-of-gpt-j-using-stanford-alpaca-dataset.html)|GPT-J-6B|52K Alpaca|SFT|fp16 model deploy well on 16GB Tesla T4|
 |[LianjiaTech/BELLE](https://github.com/LianjiaTech/BELLE)|BLOOMZ-7B1-mt|2M chinese data generated in a Alpaca way|SFT|8-bit **GPTQ** quantization using 12GB GPU|
 |[LianjiaTech/BELLE](https://github.com/LianjiaTech/BELLE)|LLaMA-7B| same | SFT |4-bit **ggml** quantization work well on M1 chip Mac|
@@ -42,6 +42,9 @@
 |[MSFT/LLaMA-GPT4](https://instruction-tuning-with-gpt-4.github.io/)|LLaMA-7B|52K Alpaca prompt input using GPT-4| SFT, RM|
 |[MSFT/DeepSpeed Chat](https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat)| | | support SFT, RM, RLHF | [Efficiency and Affordability](https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat) |
 |[ColossalAI/ColossalChat](https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat)| | | support SFT, RM, RLHF | [quick preview](https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat#quick-preview)|
+|[Phoenix](https://github.com/FreedomIntelligence/LLMZoo)|LLaMA-7B/13B|vast collection of popular multilingual open source dataset| SFT |
+|[MOSS-003](https://github.com/OpenLMLab/MOSS)|MOSS-16B|~1.1M text-davinci-003 generated self-instruct dataset, include ~300k plugins dataset as text-to-image/equations/.etc| SFT | fp16 finetune on 2 A100s or 4/8-bit finetune on single 3090 |
+
 
 
 ## References
@@ -59,3 +62,21 @@
 - RLHF: DeepSpeedChat/ColossalChat;
 
 ![](https://openaicom.imgix.net/cf717bdb-0c8c-428a-b82b-3c3add87a600/ChatGPT_Diagram.svg?fm=auto&auto=compress,format&fit=min&w=1919&h=1138)
+
+
+## Typology of efficient NLP Model Training
+
+![](./efficient_nlp_typology.jpeg)
+
+- Data & Model Parallel ([torch-model-parallel](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html), [huggingface-model-parallelism](https://huggingface.co/docs/transformers/v4.15.0/parallelism))
+  - Data Parallel
+  - Tensor Parallel
+  - Pipeline Paralle
+  - Zero Redundancy Optimizer(ZeRO) (DeepSpeed, often work with CPU offloading)
+  - Sharded DDP(FSDP)
+
+- Param Efficient
+  - LoRA
+  - 16-bit mix precision
+  - 8-bit bitsandbytes/triton
+  - 4-bit gptq/ggml

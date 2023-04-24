@@ -1,10 +1,10 @@
-Chart version in [chart.md](./chart.md).
+This repository is dedicated to tracking affordable but powerful language models (LLMs).<br/>Filtered and reformatted version in [chart.md](./chart.md).
 
 
-# News about 🦙 Cult and other AIGC models
+# Keeping track of affordable LLMs
 
 - 04/21: China Fudan University release its 16B LLM named MOSS-003; Moss dataset contains ~1.1M text-davinci-003 generated self-instruct dataset, include ~300k plugins dataset as text-to-image/equations/.etc, fp16 finetune on 2 A100s or 4/8-bit finetune on single 3090.  ([repo](https://github.com/OpenLMLab/MOSS))
-- 04/21: Phoenix, a new multilingual LLM that achieves competitive performance ([repo](https://github.com/FreedomIntelligence/LLMZoo))
+- 04/21: Phoenix, a new multilingual LLM that achieves competitive performance, vast collection of popular open source dataset ([repo](https://github.com/FreedomIntelligence/LLMZoo))
 - 04/20: UltraChat, a Informative and Diverse Multi-round Chat Data gather by THUNLP lab ([repo](https://github.com/thunlp/UltraChat), [data](https://huggingface.co/datasets/stingning/ultrachat))
 - 04/20: replicate ChatGLM with efficient fine-tuning (ptunig, lora, freeze) ([repo](https://github.com/hiyouga/ChatGLM-Efficient-Tuning)); support langchain in [langchain-ChatGLM](https://github.com/imClumsyPanda/langchain-ChatGLM) project
 - 04/19: StableLM, 3B/7B LLM from StabilityAI ([tweet](https://twitter.com/StabilityAI/status/1648706159992532992), [blog](https://stability.ai/blog/stability-ai-launches-the-first-of-its-stablelm-suite-of-language-models))
