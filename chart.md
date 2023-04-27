@@ -5,6 +5,7 @@
 - With this repository, you can quickly and easily access all the vital information you need for your affordable LLM needs.
 
 
+
 ## Base Models
 - EleutherAI: GPT-J, GPT-NEO, GPT-NEOX, Pythia / Dolly
 - huggingface BigScience: BLOOM / BELLE
@@ -12,10 +13,14 @@
 - Microsoft: DeepSpeedChat
 - ColossalAI: ColossalChat
 - Cerebras: Cerebras-GPT
+- BlinkDL: RWKV
 - Google: BERT, T5, Flan, PaLM, LaMDA
 - DeepMind: Chinchilla, Gopher, Sparrow
 - Anthropic: Claude
 - OpenAI: GPT-1, GPT-2, GPT-3, ChatGPT, GPT-4
+
+![image](https://user-images.githubusercontent.com/16999665/234847363-03ede52a-cb4c-48d9-946c-771a6afdebd2.png)
+
 
 
 ## Model Spec
@@ -56,6 +61,7 @@
 - [LLaMA-Adapter: LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention, 2023/03, Shanghai AI Lab]
 
 
+
 ## Fine-tune Stages
 - SFT: Raw, LoRA, PEFT; Chinese Vocab Fixing; Instruction Dataset generated using ChatGPT/GPT4, Human labeled dataset like databricks-dolly-15k;
 - RM: GPT-4 assign scores using its judging quality ability; Open Source Datasets;
@@ -64,7 +70,10 @@
 ![](https://openaicom.imgix.net/cf717bdb-0c8c-428a-b82b-3c3add87a600/ChatGPT_Diagram.svg?fm=auto&auto=compress,format&fit=min&w=1919&h=1138)
 
 
+
 ## Typology of efficient NLP Model Training
+
+Material collecting ...
 
 ![](./efficient_nlp_typology.jpeg)
 
@@ -77,6 +86,12 @@
 
 - Param Efficient
   - LoRA
+  - PEFT: https://github.com/huggingface/peft
+  - Gradient Checkpointing: https://qywu.github.io/2019/05/22/explore-gradient-checkpointing.html
   - 16-bit mix precision
   - 8-bit bitsandbytes/triton
   - 4-bit gptq/ggml
+
+- Build from scratch
+  - https://github.com/karpathy/nanoGPT
+  - https://github.com/karpathy/minGPT
