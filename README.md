@@ -3,8 +3,9 @@ This repository is dedicated to tracking affordable but powerful language models
 
 # Keeping track of affordable LLMs
 
+- 04/28: Multimodal-GPT, released by the famous MMLab, build base on open-source multi-modal model [OpenFlamingo](https://github.com/mlfoundations/open_flamingo) with visual and language instructions ([repo](https://github.com/open-mmlab/Multimodal-GPT))
 - 04/27: "Speed is all you need", generate a 512 × 512 image with 20 iterations on GPU equipped mobile devices in 12- seconds for Stable Diffusion 1.4 without INT8 quantization, 50+% latency reduced on Samsung S23 Ultra. ([paper](https://arxiv.org/pdf/2304.11267.pdf))
-- 04/27: Replit reveals replit-code-v1-3b, it's a 2.7B parameters LLM trained entirely on code in 10 days, performs 40% better than comparable models, beat CodeX ([tweet](https://twitter.com/Replit/status/1651344182425051136))
+- 04/27: replit-code-v1-3b, it's a 2.7B parameters LLM trained entirely on code in 10 days, performs 40% better than comparable models on benchmark ([tweet](https://twitter.com/Replit/status/1651344182425051136))
 - 04/26: huggingChat, a 30B OpenAssistant/oasst-sft-6-llama-30b-xor LLM deployed by huggingface ([tweet](https://twitter.com/DrJimFan/status/1650910941687730176), [site](https://huggingface.co/chat/), [model](https://huggingface.co/OpenAssistant/oasst-sft-6-llama-30b-xor))
 - 04/26: LLM+P, takes in a planning problem decription, turn it into PDDL, leveraging classical planners to find a solution ([tweet](https://twitter.com/IntuitMachine/status/1650771375693389825), [paper](https://arxiv.org/abs/2304.11477), [repo](https://github.com/Cranial-XIX/llm-pddl))
 - 04/21: China Fudan University release its 16B LLM named MOSS-003; Moss dataset contains ~1.1M text-davinci-003 generated self-instruct dataset, include ~300k plugins dataset as text-to-image/equations/.etc, fp16 finetune on 2 A100s or 4/8-bit finetune on single 3090.  ([repo](https://github.com/OpenLMLab/MOSS))
