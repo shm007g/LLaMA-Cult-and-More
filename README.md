@@ -1,8 +1,12 @@
 This repository is dedicated to tracking affordable but powerful language models (LLMs).<br/>Filtered and reformatted version in [chart.md](./chart.md).
 
+![survey-gif-test](https://github.com/Mooler0410/LLMsPracticalGuide/raw/main/imgs/survey-gif-test.gif)
+
 
 # Keeping track of affordable LLMs
 
+- 04/28: Chinese-LLaMA-Plus-7B, re-pretrain LLaMA on larger(120G) general corpus, fine-tune with 4M instruction dataset, bigger LoRA rank for less precision loss, beat former 13B mdoel on benchmark ([repo](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.0))
+- 04/28: AudioGPT, a multi-modal GPT model can understand audio/text/image instruction inputs and generate audio, song, style transfer speech, talking head synthesis video ([blog](https://aigc-audio.github.io/AudioGPT.github.io/), [repo](https://github.com/AIGC-Audio/AudioGPT), [demo](https://huggingface.co/spaces/AIGC-Audio/AudioGPT))
 - 04/28: Multimodal-GPT, released by the famous MMLab, build base on open-source multi-modal model [OpenFlamingo](https://github.com/mlfoundations/open_flamingo) with visual and language instructions ([repo](https://github.com/open-mmlab/Multimodal-GPT))
 - 04/27: "Speed is all you need", generate a 512 × 512 image with 20 iterations on GPU equipped mobile devices in 12- seconds for Stable Diffusion 1.4 without INT8 quantization, 50+% latency reduced on Samsung S23 Ultra. ([paper](https://arxiv.org/pdf/2304.11267.pdf))
 - 04/27: replit-code-v1-3b, it's a 2.7B parameters LLM trained entirely on code in 10 days, performs 40% better than comparable models on benchmark ([tweet](https://twitter.com/Replit/status/1651344182425051136))
