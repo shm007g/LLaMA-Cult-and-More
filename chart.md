@@ -5,6 +5,7 @@
 - With this repository, you can quickly and easily access all the vital information you need for your affordable LLM needs.
 
 
+
 ## Base Models
 - EleutherAI: GPT-J, GPT-NEO, GPT-NEOX, Pythia / Dolly
 - huggingface BigScience: BLOOM / BELLE, Phoenix
@@ -49,7 +50,8 @@
 |[ColossalAI/ColossalChat](https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat)| | | support SFT, RM, RLHF | [quick preview](https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat#quick-preview)|
 |[Phoenix](https://github.com/FreedomIntelligence/LLMZoo)|LLaMA-7B/13B|vast collection of popular multilingual open source dataset| SFT |
 |[fudan/MOSS-003](https://github.com/OpenLMLab/MOSS)|MOSS-16B|~1.1M text-davinci-003 generated self-instruct dataset, include ~300k plugins dataset as text-to-image/equations/.etc| SFT | fp16 finetune on 2 A100s or 4/8-bit finetune on single 3090 |
-|replit/replit-code-v1-3b| 2.7B | entirely code, 525B tokens | |10 days, benchmark better CodeX |
+|[replit/replit-code-v1-3b](https://huggingface.co/replit)| 2.7B | entirely code, 525B tokens | |10 days, benchmark better CodeX |
+
 
 
 ## Fine-tune Stages
@@ -58,6 +60,7 @@
 - RLHF: DeepSpeedChat/ColossalChat;
 
 ![](https://openaicom.imgix.net/cf717bdb-0c8c-428a-b82b-3c3add87a600/ChatGPT_Diagram.svg?fm=auto&auto=compress,format&fit=min&w=1919&h=1138)
+
 
 
 ## Typology of efficient LLM Training
@@ -81,8 +84,15 @@
   - 4-bit: gptq / ggml
 
 
+
+## Instruction Dataset
+
+
+
 ## LLM evaluation
 
 - [TruthfulQA](https://openai.com/research/truthfulqa): the benchmark comprises 817 questions that span 38 categories, including health, law, finance and politics.
 - [Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/examples/README.md): the chinese benchmark contains 10 tasks with 20 example for each
 - https://github.com/EleutherAI/lm-evaluation-harness: [blog](https://wandb.ai/wandb_gen/llm-evaluation/reports/Evaluating-Large-Language-Models-LLMs-with-Eleuther-AI--VmlldzoyOTI0MDQ3)
+- MMLU: English LLM evalution
+- https://github.com/Felixgithub2017/MMCU: zero/few-shot evaluation on 15 chinese tasks, contains med, law, psy, edu.  
