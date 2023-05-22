@@ -1,14 +1,26 @@
-This repository is dedicated to tracking affordable but powerful language models (LLMs).<br/>Filtered and reformatted version in [chart.md](./chart.md).
+- This repository is dedicated to organizing affordable but powerful open source language models.
+- The repository providing valuable insights into the latest models, including number of parameters, fine-tuning datasets and techniques, and hardware specifications.
+- With this repository, you can quickly and easily access all the vital information you need for your affordable LLM needs.
 
-![survey-gif-test](https://github.com/Mooler0410/LLMsPracticalGuide/raw/main/imgs/survey-gif-test.gif)
 
 
 # Keeping track of affordable LLMs
 
-- 05/04: TIP(Dual Text-Image Prompting)  a DALLE2/StableDiffusion-2 enhanced LLM that can generate coherent and authentic multimodal procedural plans toward a high-level goal ([tweet](https://twitter.com/yujielu_10/status/1653928324408958977))
+- 05/22: LIMA, Less is More for Alignment (Meta AI), LLaMA 65B + 1000 standard supervised samples = {GPT4, Bard} level performance, without RLHF. ([tweet](https://twitter.com/ylecun/status/1660632951388880896), [paper](https://arxiv.org/abs/2305.11206))
+- 05/21: 4-bit QLoRA via bitsandbytes (4-bit base model + LoRA) ([tweet](https://twitter.com/erhartford/status/1659968725167271936))
+- 05/20: InstructBLIP Vicuna-13B, generates text based on text and image inputs, and follows human instructions. ([tweet](https://twitter.com/replicatehq/status/1659630553484902400), [demo](https://replicate.com/joehoover/instructblip-vicuna13b), [repo](https://github.com/salesforce/LAVIS/tree/main/projects/instructblip))
+- 05/18: CodeT5+, LLM for code understanding and generation ([tweet](https://twitter.com/omarsar0/status/1659199220392525832))
+- 05/18: PKU-Beaver, the first chinese open-source RLHF framework developed by PKU-Alignment team at Peking University. Provide a large human-labeled dataset (up to 1M pairs) including both helpful and harmless preferences to support reproducible RLHF research. ([blog](https://pku-beaver.github.io/), [repo](https://github.com/PKU-Alignment/safe-rlhf), [data](https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF-10K))
+- 05/17: Tree of Thoughts(TOT), GPT-4 Reasoning is Improved 900% with this new prompting ([video](https://www.youtube.com/watch?v=BrjAt-wvEXI), [paper](https://arxiv.org/pdf/2305.10601.pdf), [repo](https://github.com/kyegomez/tree-of-thoughts))
+- 05/13: LaWGPT, a chinese Law LLM, extend chinese law vocab, pretrained on large corpus of law specialty ([repo](https://github.com/pengxiao-song/LawGPT))
+- 05/10: DetGPT, a multi-modal LLM addressing reasoning-based object detection problem, could interpret user instruction and automatically locate the object of interest, with only little part of whole model fine-tuned. ([blog](https://detgpt.github.io/), [repo](https://github.com/OptimalScale/DetGPT))
+- 05/10: SoftVC VITS Singing Voice Conversion, A open-source project developed to allow the developers' favorite anime characters to sing. Popular for it's been used in song generation with perticular singer's voice. ([repo](https://github.com/svc-develop-team/so-vits-svc))
+- 05/10: ImageBind, One Embedding Space To Bind Them All (FAIR, Meta AI), learns a joint embedding across six different modalities - images, text, audio, depth, thermal, and IMU data. It enables novel emergent applications ‘out-of-the-box’ with small fine-tune dataset. ([tweet](https://twitter.com/ylecun/status/1656073592759623691), [blog](https://ai.facebook.com/blog/imagebind-six-modalities-binding-ai/), [repo](https://github.com/facebookresearch/ImageBind))
+- 05/04: TIP(Dual Text-Image Prompting), a DALLE2/StableDiffusion-2 enhanced LLM that can generate coherent and authentic multimodal procedural plans toward a high-level goal ([tweet](https://twitter.com/yujielu_10/status/1653928324408958977))
 - 05/04: GPTutor, a ChatGPT-powered tool for code explanation ([tweet](https://twitter.com/omarsar0/status/1653928891646455808))
 - 05/04: Chatbot Arena: Benchmarking LLMs in the Wild with Elo Ratings ([blog](https://lmsys.org/blog/2023-05-03-arena/), [tweet](https://twitter.com/lmsysorg/status/1653843200975704069))
 - 05/03: Modular/Mojo, a new Python-compatible language with a parallelizing compiler that can import Python libraries, combines the usability of Python with the performance of C, unlocking unparalleled programmability of AI hardware and extensibility of AI models. Only Limited notebook released for now. ([tweet](https://twitter.com/Modular_AI/status/1653436642248781825), [blog](https://www.modular.com/blog/a-unified-extensible-platform-to-superpower-your-ai), [doc](https://docs.modular.com/mojo/get-started.html))
+- 05/01: VPGTrans: Transfer Visual Prompt Generator across LLMs, a multi-modal LLM release by NUS for its 10 times training cose reduced. ([blog](https://vpgtrans.github.io/), [repo](https://github.com/VPGTrans/VPGTrans))
 - 05/01: "Are Emergent Abilities of Large Language Models a Mirage?" alternative explanation for emergent abilities, strong supporting evidence that emergent abilities may not be a fundamental property of scaling AI models. ([paper](https://arxiv.org/abs/2304.15004))
 - 05/01: A brief history of LLaMA models ([tweet](https://twitter.com/ylecun/status/1652794563520606210), [blog](https://agi-sphere.com/llama-models/))
 - 05/01: Geoffrey Hinton left Google. IBM say it can replace over 7500 current employees with AI. Chegg stock price drop 40%.
