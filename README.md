@@ -1,18 +1,113 @@
-- This repository is dedicated to organizing affordable but powerful open source language models.
-- The repository providing valuable insights into the latest models, including number of parameters, fine-tuning datasets and techniques, and hardware specifications.
-- With this repository, you can quickly and easily access all the vital information you need for your affordable LLM needs.
+- Providing valuable insights into the latest models, including number of parameters, fine-tuning datasets and techniques, and hardware specifications.
+- Practical guides for LLM alignment post-training, include dataset, benchmark datasets, efficient training libraries and techniques; also involves history of pre-trained LLM. 
+
+
+## Pre-trained Base Models
+
+<details><summary> Simple Version </summary>
+
+- OpenAI: GPT-1, GPT-2, GPT-3, InstructGPT, Code-davinci-002, GPT-3.5, GPT-4(-8k/32k)
+- Anthropic: Claude-v1, Claude Instant
+- Meta: OPT, Galactica, LLaMA
+- huggingface BigScience: BLOOM (176B), BLOOMZ, mT0
+- EleutherAI: GPT-Neo, GPT-J (6B), GPT-NeoX (20B), Pythia
+- TogetherCompute: GPT-JT, RedPajama-7B, RedPajama-INCITE
+- Berkeley: OpenLLaMA
+- MosaicML: MPT-7B, MPT-7B-Instruct/Chat
+- TII: Falcon-7/40B-(instruct)
+- BlinkDL: RWKV-4-Pile, RWKV-4-PilePlus
+- Tsinghua THUDM: GLM-130B, ChatGLM-6B
+- Cerebras: Cerebras-GPT
+- Google: T5, mT5, LaMDA, Pathways, PaLM, UL2, Flan-T5, Flan-UL2, Bard, PaLM-E, PaLM 2, MoE, Switch Transformer, GLaM, ST-MoE, MoE Routing
+- DeepMind: Gopher, Chinchilla, Sparrow
+- Nvidia: Megatron-Turing NLG (530B)
+
+</details>
+
+![survey-gif-test](https://github.com/Mooler0410/LLMsPracticalGuide/blob/main/imgs/qr_version.jpg?raw=true)
+
+- OpenAI
+  - 2018/06, GPT-1 (117m)
+  - 2019/02, GPT-2 (1.5B)
+  - 2020/06, GPT-3 (175B): ada(350M), babbage(1.3B), curie(6.7B), davinci(175B), [detail here](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
+  - 2022/01, InstructGPT-3: text-ada(350M), text-babbage(1.3B), text-curie(6.7B), text-davinci-001(175B)
+  - 2022/02, Code-davinci-002
+  - [GPT-3.5](https://en.wikipedia.org/wiki/GPT-3#GPT-3.5) (175B): text-davinci-002 (2022/03), text-davinci-003 (2022/11), ChatGPT (2022/11), gpt-3.5-turbo (2023/03)
+  - 2023/03, GPT-4(-8k/32k)
+- Anthropic
+  - Claude-v1: 2023/03, state-of-the-art high-performance model, context window 9k/100k tokens
+  - Claude Instant: 2023/03, lighter, less expensive, and much faster option, context window 9k/100k tokens
+- Meta
+  - OPT (125M/350M/1.3B/2.7B/6.7B/13B/30B/66B/175B): 2022/03, pre-trained on (datasets used in RoBERTa, the Pile, `PushShift.io` Reddit) using [metaseq](https://github.com/facebookresearch/metaseq), 1/7th the carbon footprint if GPT-3, combining Meta’s open source Fully Sharded Data Parallel (FSDP) API and NVIDIA’s tensor parallel abstraction within Megatron-LM, contain predominantly English text and a small amount of non-English data via CommonCrawl, [released](https://huggingface.co/models?search=facebook/opt) under a [noncommercial](https://ai.facebook.com/blog/democratizing-access-to-large-scale-language-models-with-opt-175b/) license.
+  - Galactica (125M/1.3B/6.7B/30B/120B): 2022/11, [facebook/galactica](https://huggingface.co/models?search=facebook/galactica) models are designed to perform scientific tasks, include prompts in pre-training alongside the general corpora, under a non-commercial CC BY-NC 4.0 license
+  - **LLaMA** (7B/13B/33B/65B): 2023/02, trained LLaMA 65B/33B on 1.4 trillion tokens, LLaMA 7B on one trillion tokens, chose text from the 20 languages with the most speakers, [leaked](https://huggingface.co/decapoda-research),  under a non-commercial GPL-3.0 license.
+- huggingface BigScience
+  - [BLOOM (176B)](https://huggingface.co/bigscience/bloom): 2022/07/11, a multilingual LLM trained on ROOTS corpus (a composite collection of 498 Hugging Face datasets), using 250k vocabulary sizes, seq-len 2048, smaller size model [search here](https://huggingface.co/models?search=bigscience/bloom), release under commercial friendly [BigScience Responsible AI License](https://bigscience.huggingface.co/blog/the-bigscience-rail-license).
+  - [BLOOMZ & mT0](https://huggingface.co/bigscience/bloomz): 2022/11, finetune BLOOM & mT5 on our crosslingual task instruction following mixture (xP3), released under commercial friendly bigscience-bloom-rail-1.0 License.
+- EleutherAI
+  - [The Pile](https://github.com/EleutherAI/the-pile): 2020/12/31, a 300B (deduplicated 207B) token open source English-only language modelling dataset, [download here](https://pile.eleuther.ai/).
+  - GPT-Neo (125M/1.3B/2.7B)(Deprecated): 2021/03/21, A set of decoder-only LLMs trained on the Pile, MIT license.
+  - GPT-J (6B): 2021/06/04, [EleutherAI/gpt-j-6b](https://huggingface.co/EleutherAI/gpt-j-6b), English language model trained on the Pile using [mesh-transformer-jax](https://github.com/kingoflolz/mesh-transformer-jax/) library, seq-len 2048, Apache-2.0 license.
+  - GPT-NeoX (20B): 2022/02/10, [EleutherAI/gpt-neox-20b](https://huggingface.co/EleutherAI/gpt-neox-20b), English language model trained on the Pile using [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) library, seq-len 2048, Apache-2.0 license.
+  - **Pythia** (70M/160M/410M/1B/1.4B/2.8B/6.9B/12B): 2023/02/13, a suite of 8 model sizes on 2 different datasets: the Pile, the Pile deduplication, using gpt-neox library, seq-len [2048](https://arxiv.org/pdf/2304.01373.pdf), Apache-2.0 license.
+- TogetherCompute
+  - [GPT-JT](https://www.together.xyz/blog/releasing-v1-of-gpt-jt-powered-by-open-source-ai) (6B): 2022/11/29, A fork of GPT-J-6B, fine-tuned on 3.53 billion tokens with open-source dataset and techniques, outperforms most 100B+ parameter models at classification.
+  - RedPajama-Pythia-7B: 2023/04/17, release [RedPajama-Data-1T](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) for reproducing "LLaMA" foundation models in a fully open-source way; 40% RedPajama-Data-1T trained RedPajama-Pythia-7B beat Pythia-7B trained on the Pile and StableLM-7B with higher HELM score, still weaker than LLaMA-7B for now; detail see [blog1](https://www.together.xyz/blog/redpajama), [blog2](https://www.together.xyz/blog/redpajama-training-progress) and [Card](https://huggingface.co/togethercomputer).
+  - [OpenChatKit](https://github.com/togethercomputer/OpenChatKit): 2023/03/10, fine-tuned for chat from EleutherAI’s GPT-NeoX-20B with over OIG-43M instructions dataset; contributing to a growing corpus of open instruction following dataset.
+  - **[RedPajama-INCITE](https://www.together.xyz/blog/redpajama-models-v1)** (3B/7B): 2023/05/05, open-source 3B model (base/chat/instruct) trained on 800B tokens and finetuned, the strongest model in it’s class and brings LLM to a wide variety of hardware; 80% (800B) trained 7B model beat same class GPT-J/Pythia/LLaMA on HELM and lm-evaluation-harness; releasing RedPajama v2 with 2T Tokens (mix the Pile dataset into RedPajama, more code like [the Stack](https://www.bigcode-project.org/docs/about/the-stack/)); Apache 2.0 license.
+  - Berkeley/[OpenLLaMA](https://github.com/openlm-research/open_llama): open source reproduction of Meta AI’s LLaMA 7B/3B trained on the RedPajama dataset, provide PyTorch and JAX [weights](https://huggingface.co/openlm-research), Apache-2.0 license.
+- MosaicML
+  - **[MPT](https://www.mosaicml.com/blog/mpt-7b)** (MosaicML Pretrained Transformer, 7B(6.7B)): 2023/05/05, a GPT-style decoder-only transformers trained from scratch on 1T tokens of text and code (RedPajama, mC4, C4, the Stack Dedup, Semantic Scholar ORC) in 9.5 days at a cost of ~$200k, [ALiBi](https://arxiv.org/abs/2108.12409) (handle 65k long input) and other optimized techniques, matches the quality of LLaMA-7B; open source for commercial use, Apache-2.0 License.
+  - MPT-7B-Instruct/Chat: finetuning MPT-7B on instruction following dataset and dialogue generation dataset; release [mosaicml/dolly_hhrlhf](https://huggingface.co/datasets/sam-mosaic/dolly_hhrlhf) dataset derived from Databricks [Dolly-15k](https://huggingface.co/datasets/databricks/databricks-dolly-15k) and [Anthropic’s Helpful and Harmless](https://huggingface.co/datasets/Anthropic/hh-rlhf) datasets; CC-By-SA-3.0 (commercially-usable) / CC-By-NC-SA-4.0 (non-commercial use only).
+- TII (Technology Innovation Institute)
+  - [Falcon-7/40B-(instruct)](https://huggingface.co/tiiuae): 2023/05/26, pretrained on 1500/1000B tokens of [RefinedWeb](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) (apache-2.0) enhanced with curated corpora, finetuned on a mixture of chat/instruct datasets like Baize, come first at huggingface [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) at the end of May 2023; commercial use should pay when attributable revenues superior to $1M/year.
+- BlinkDL
+  - RWKV-4-Pile (169M/430M/1.5B/3B/7B/14B): 2023/04, [RWKV: Reinventing RNNs for the Transformer Era](https://arxiv.org/abs/2305.13048), leverages RNN with a linear attention mechanism, trained on the Pile, infinite seq-len, [Weights](https://huggingface.co/BlinkDL).
+  - RWKV-4-PilePlus (7B/14B): 2023/04, finetuning on [RedPajama + some of Pile v2 = 1.7T tokens].
+- Tsinghua THUDM
+  - [GLM-130B](https://github.com/THUDM/GLM-130B): 2022/10, An Open Bilingual Pre-Trained Model, support english and chinese, trained on 400B text tokens using [GLM](https://github.com/THUDM/GLM) library, Apache-2.0 license.
+  - **[ChatGLM-6B](https://github.com/THUDM/ChatGLM-6B)**: 2023/03, trained with 1T chinese and english tokens, finetuned with instruction following QA and dialogue dataset in chinese language, [released](https://huggingface.co/THUDM) under Apache-2.0 license, authorization needed.
+- Cerebras
+  - [Cerebras-GPT](https://www.cerebras.net/blog/cerebras-gpt-a-family-of-open-compute-efficient-large-language-models/): 2023/03, a family of seven GPT models ranging from 111M to 13B, trained Eleuther Pile dataset using the Chinchilla formula, [release](https://huggingface.co/cerebras) under the Apache 2.0 license
+- Google
+  - 2019/10/23, [T5](https://huggingface.co/docs/transformers/model_doc/t5), Exploring the Limits of Transfer Learning with a [Unified Text-to-Text Transformer](https://arxiv.org/abs/1910.10683)
+  - 2020/01/28, LaMDA: [blog-2021/03/18](https://blog.google/technology/ai/lamda/), [blog-2020/01/28](https://ai.googleblog.com/2020/01/towards-conversational-agent-that-can.html), [blog-2022/01/21](https://ai.googleblog.com/2022/01/lamda-towards-safe-grounded-and-high.html)
+  - 2021/10/28, Introducing [Pathways](https://blog.google/technology/ai/introducing-pathways-next-generation-ai-architecture/): A next-generation AI architecture
+  - 2022/04/04, [Pathways Language Model (PaLM)](https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html): Scaling to 540 Billion Parameters for Breakthrough Performance
+  - 2022/05/11, Language Models Perform Reasoning via [Chain of Thought](https://ai.googleblog.com/2022/05/language-models-perform-reasoning-via.html)
+  - 2022/10/14, [UL2](https://ai.googleblog.com/2022/10/ul2-20b-open-source-unified-language.html) 20B: An Open Source Unified Language Learner
+  - 2023/02/01, [FLAN](https://github.com/google-research/FLAN): [Introducing](https://ai.googleblog.com/2021/10/introducing-flan-more-generalizable.html) at 2021/10/06; Flan [2022 Collection](https://ai.googleblog.com/2023/02/the-flan-collection-advancing-open.html) for instruction tuning [release here](https://github.com/google-research/FLAN/tree/main/flan/v2); first used in Flan-T5 and Flan-PaLM at [2022/10/20](https://arxiv.org/abs/2210.11416), achieved significant improvements over PaLM; [Flan-UL2](https://github.com/google-research/google-research/tree/master/ul2)
+  - 2023/02/06, Introducing [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/)
+  - 2023/03/10, [PaLM-E](https://ai.googleblog.com/2023/03/palm-e-embodied-multimodal-language.html): An embodied multimodal language model.
+  - 2023/05/10, Introducing [PaLM 2](https://ai.google/discover/palm2/), review [the technical report](https://ai.google/static/documents/palm2techreport.pdf)
+  - MoE: [Sparsely-Gated Mixture-of-Experts layer (MoE) 2017/01](https://arxiv.org/abs/1701.06538), [Switch Transformer 2021/01](https://arxiv.org/abs/2101.03961), [GLaM 2021/12](https://ai.googleblog.com/2021/12/more-efficient-in-context-learning-with.html), [ST-MoE 2022/02](https://arxiv.org/abs/2202.08906), [MoE Routing 2022/11](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html)
+- DeepMind
+  - 2021/12, [Gopher](https://www.deepmind.com/blog/language-modelling-at-scale-gopher-ethical-considerations-and-retrieval) (280B), SOTA LLM could do instruction-following and dialogue interaction
+  - 2022/04, [Chinchilla](https://www.deepmind.com/blog/an-empirical-analysis-of-compute-optimal-large-language-model-training) (70B), a 4x smaller model trained on 4x more data (1.3T) outperform Gopher
+  - 2022/09, [Sparrow](https://www.deepmind.com/blog/building-safer-dialogue-agents), Building safer dialogue agents; designed to talk, answer, and search using Google, supports it with evidence
+- Nvidia
+  - 2019/09, [Megatron-Turing NLG](https://developer.nvidia.com/megatron-turing-natural-language-generation) (530B), largest model trained with novel parallelism techniques of Nvidia
 
 
 
-# Keeping track of affordable LLMs
+## Keeping track of affordable LLMs
 
+refactor soon...
+
+- 05/26: Falcon-40B, foundational LLM with 40 billion parameters trained on one trillion tokens, first place at huggingface Open LLM Leaderboard for now, 7B also released  ([blog](https://falconllm.tii.ae/), [model](https://huggingface.co/tiiuae), [Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard))
+- 05/25: BLIP-Diffusion, a BLIP multi-modal LLM pre-trained subject representation enables zero-shot subject-driven image generation, easily extended for novel applications ([tweet](https://twitter.com/LiJunnan0409/status/1661537224947810304), [blog](https://dxli94.github.io/BLIP-Diffusion-website/))
+- 05/24: C-Eval, is a comprehensive Chinese evaluation suite for foundation models. It consists of 13948 multi-choice questions spanning 52 diverse disciplines and four difficulty levels ([tweet](https://twitter.com/Francis_YAO_/status/1661267074088423426), [repo](https://github.com/SJTU-LIT/ceval))
+- 05/24: Guanaco-QLoRA, 33B/65B model finetuned on a single 24/48GB GPU in only 12/24h with new QLoRA 4-bit quantization, using small but with quality dataset OASST1 ([tweet](https://twitter.com/Tim_Dettmers/status/1661379354507476994), [repo](https://github.com/artidoro/qlora), [demo](https://huggingface.co/spaces/uwnlp/guanaco-playground-tgi)) 
+- 05/23: MMS (Massively Multilingual Speech), release by Meta AI, Can do speech2text and text speech in 1100 languages, half the word error rate of OpenAI Whisper, covers 11 times more languages. ([tweet](https://twitter.com/ylecun/status/1660732998155640833), [blog](https://ai.facebook.com/blog/multilingual-model-speech-recognition/?utm_source=twitter&utm_medium=organic_social&utm_campaign=blog&utm_content=card), [repo](https://github.com/facebookresearch/fairseq/tree/main/examples/mms))
+- 05/22: Stanford AlpacaFarm, AlpacaFarm replicates the RLHF process at a fraction of the time (<24h) and cost ($<200), enabling the research community to advance instruction following research ([blog](https://crfm.stanford.edu/2023/05/22/alpaca-farm.html), [repo](https://github.com/tatsu-lab/alpaca_farm))
 - 05/22: LIMA, Less is More for Alignment (Meta AI), LLaMA 65B + 1000 standard supervised samples = {GPT4, Bard} level performance, without RLHF. ([tweet](https://twitter.com/ylecun/status/1660632951388880896), [paper](https://arxiv.org/abs/2305.11206))
 - 05/21: 4-bit QLoRA via bitsandbytes (4-bit base model + LoRA) ([tweet](https://twitter.com/erhartford/status/1659968725167271936))
 - 05/20: InstructBLIP Vicuna-13B, generates text based on text and image inputs, and follows human instructions. ([tweet](https://twitter.com/replicatehq/status/1659630553484902400), [demo](https://replicate.com/joehoover/instructblip-vicuna13b), [repo](https://github.com/salesforce/LAVIS/tree/main/projects/instructblip))
-- 05/18: CodeT5+, LLM for code understanding and generation ([tweet](https://twitter.com/omarsar0/status/1659199220392525832))
+- 05/18: CodeT5+, LLM for code understanding and generation ([tweet](https://twitter.com/LHung1610/status/1660537067250798592), [blog](https://blog.salesforceairesearch.com/codet5-open-code-large-language-models/))
 - 05/18: PKU-Beaver, the first chinese open-source RLHF framework developed by PKU-Alignment team at Peking University. Provide a large human-labeled dataset (up to 1M pairs) including both helpful and harmless preferences to support reproducible RLHF research. ([blog](https://pku-beaver.github.io/), [repo](https://github.com/PKU-Alignment/safe-rlhf), [data](https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF-10K))
 - 05/17: Tree of Thoughts(TOT), GPT-4 Reasoning is Improved 900% with this new prompting ([video](https://www.youtube.com/watch?v=BrjAt-wvEXI), [paper](https://arxiv.org/pdf/2305.10601.pdf), [repo](https://github.com/kyegomez/tree-of-thoughts))
 - 05/13: LaWGPT, a chinese Law LLM, extend chinese law vocab, pretrained on large corpus of law specialty ([repo](https://github.com/pengxiao-song/LawGPT))
+- 05/10: Multimodal-GPT, a multi-modal LLM Based on the open-source multi-modal model [OpenFlamingo](https://github.com/mlfoundations/open_flamingo) support tuning vision and language at same time, using parameter efficient tuning with LoRA ([tweet](https://twitter.com/OpenMMLab/status/1656127026687000578), [repo](https://github.com/open-mmlab/Multimodal-GPT))
 - 05/10: DetGPT, a multi-modal LLM addressing reasoning-based object detection problem, could interpret user instruction and automatically locate the object of interest, with only little part of whole model fine-tuned. ([blog](https://detgpt.github.io/), [repo](https://github.com/OptimalScale/DetGPT))
 - 05/10: SoftVC VITS Singing Voice Conversion, A open-source project developed to allow the developers' favorite anime characters to sing. Popular for it's been used in song generation with perticular singer's voice. ([repo](https://github.com/svc-develop-team/so-vits-svc))
 - 05/10: ImageBind, One Embedding Space To Bind Them All (FAIR, Meta AI), learns a joint embedding across six different modalities - images, text, audio, depth, thermal, and IMU data. It enables novel emergent applications ‘out-of-the-box’ with small fine-tune dataset. ([tweet](https://twitter.com/ylecun/status/1656073592759623691), [blog](https://ai.facebook.com/blog/imagebind-six-modalities-binding-ai/), [repo](https://github.com/facebookresearch/ImageBind))
@@ -115,3 +210,63 @@
 - text-generation-webui: A gradio web UI for deploy LLMs like GPT-J, LLaMA ([repo](https://github.com/oobabooga/text-generation-webui))
 - tldream/lama-cleaner: tiny little diffusion drawing app ([repo1](https://github.com/Sanster/tldream), [repo2](https://github.com/Sanster/lama-cleaner))
 - A1111-Web-UI-Installer: A gradio web UI for deploy stable diffusion models ([repo](https://github.com/EmpireMediaScience/A1111-Web-UI-Installer))
+
+
+
+## Instruction and conversational datasets
+
+- https://github.com/allenai/natural-instructions AllenAI NI dataset, a collection of over 1.6K tasks and their natural language definitions/instructions, [more](https://instructions.apps.allenai.org/)
+- https://huggingface.co/datasets/bigscience/P3 BigScience P3 (Public Pool of Prompts), a collection of prompted English datasets covering 55 tasks.
+- https://laion.ai/blog/oig-dataset/ The Open Instruction Generalist (OIG-43M) dataset is a large open source instruction dataset that currently contains ~43M instructions.
+- https://huggingface.co/datasets/databricks/databricks-dolly-15k Dolly v2.0 dataset by DataBricks.
+- https://huggingface.co/datasets/OpenAssistant/oasst1 OpenAssistant Conversations (OASST1), a human-generated, human-annotated assistant-style conversation corpus consisting of 161k messages in 35 different languages, annotated with 461k quality ratings, resulting in over 10,000 fully annotated conversation trees.
+- https://huggingface.co/datasets/Anthropic/hh-rlhf Anthropic Helpful and Harmless (HH-RLHF) datasets, include (1) Human preference data about helpfulness and harmlessness, (2) Human-generated and annotated red teaming dialogues
+- https://huggingface.co/datasets/jeffwan/sharegpt_vicuna
+- https://huggingface.co/datasets/Hello-SimpleAI/HC3 Human ChatGPT Comparison Corpus (HC3)
+- https://huggingface.co/datasets/tatsu-lab/alpaca 50k instruction following dataset from ChatGPT
+- https://huggingface.co/datasets/WizardLM/evol_instruct_70k
+- https://github.com/google-research/FLAN/tree/main/flan/v2 The Flan Collection dataset
+
+
+## Pre-training datasets
+
+- the Pile
+- RedPajama-Data-1T
+- C4
+- mC4
+- the Stack
+
+
+
+## Efficient Training Library
+
+- CarperAI/trlx, a distributed training framework language models with RLHF
+- Microsoft/DeepSpeedChat
+- ColossalAI/ColossalChat
+- PyTorch FSDP
+- [ALiBi](https://github.com/ofirpress/attention_with_linear_biases), [Train Short, Test Long: Attention with Linear Biases (ALiBi) Enables Input Length Extrapolation], handle extremely long inputs
+- [NVIDIA/FasterTransformer](https://github.com/NVIDIA/FasterTransformer), highly optimized transformer-based encoder and decoder component
+- MosaicML: [Composer](https://github.com/mosaicml/composer), [llm-foundry](https://github.com/mosaicml/llm-foundry)
+
+
+
+## Evaluation Benchmark
+
+- https://github.com/hendrycks/test MMLU, 2020/09, covers 57 tasks including elementary mathematics, US history, computer science, law, and more; regularly groups with science/social science/math/med/humanities.
+- https://github.com/EleutherAI/lm-evaluation-harness 2021/09, 200+ task implemented(hundreds/thousands/ten-thousands for each), industry-standard ICL evaluation codebase, [mpt example](https://www.mosaicml.com/blog/llm-evaluation-for-icl), more see [report](https://wandb.ai/wandb_gen/llm-evaluation/reports/Evaluating-Large-Language-Models-LLMs-with-Eleuther-AI--VmlldzoyOTI0MDQ3)
+- https://crfm.stanford.edu/helm/latest/ 2022/11, Stanford Holistic Evaluation of Language Models (HELM), covers 42 scenarios and 57 metrics
+- https://github.com/google/BIG-bench 2022/06, collaborative benchmark covers more than 200 tasks 
+- https://github.com/suzgunmirac/BIG-Bench-Hard 2022/10, Challenging BIG-Bench Tasks and Whether Chain-of-Thought Can Solve Them
+- https://github.com/microsoft/AGIEval AGIEval, 2023/04, A Human-Centric Benchmark for Evaluating Foundation Models; AGIEval v1.0 contains 20 tasks, including two cloze tasks (Gaokao-Math-Cloze and MATH) and 18 multi-choice question answering tasks, derived from 20 official, public, hign-standard qualification human exams, like gaokao, SAT
+- https://openai.com/research/truthfulqa TruthfulQA, 2021/09, a OpenAI benchmark for Measuring how models mimic human falsehoods, which comprises 817 questions that span 38 categories, including health, law, finance and politics
+- https://github.com/google-research-datasets/seahorse Seahorse, 2023/05, is a compound dataset for summarization evaluation, it consists of 96K summaries with human ratings along 6 quality dimensions
+- https://github.com/bigcode-project/bigcode-evaluation-harness 2022/11, evaluation of code generation models
+- https://openai.com/research/evaluating-large-language-models-trained-on-code 2021/07, OpenAI Codex performance on HumanEval
+- https://github.com/Felixgithub2017/MMCU Multi-task Chinese Understanding (MMCU, 2023/04), chinese version MMLU, four major domains including medicine, law, psychology, and education; apply free dataset download on email response
+- https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/pro/examples/README.md 2023/04, Chinese-LLaMA project use this small chinese dataset (which contains 10 tasks, 20 samples for each) to test its own performace upgrade with OpenAI GPT API 
+- https://github.com/Hello-SimpleAI/chatgpt-comparison-detection  Human ChatGPT Comparison Corpus (HC3, 2023/01), tens of thousands of comparison responses from both human experts and ChatGPT, with questions ranging from open-domain, financial, medical, legal, and psychological areas
+- https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard 2023/05, 4 key benchmarks from the Eleuther AI Language Model Evaluation Harness
+- https://lmsys.org/blog/2023-05-25-leaderboard/ Chatbot Arena leaderboard, Elo rating leaderboard based on the 27K anonymous voting
+- [GPT-4 Technical Report, OpenAI, 2023.03]
+- [Sparks of Artificial General Intelligence: Early experiments with GPT-4, MSFT, 2023.04]
+- [PaLM 2 Technical Report, Google, 2023.05]
