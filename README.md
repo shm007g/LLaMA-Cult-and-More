@@ -1,18 +1,25 @@
 - Providing valuable insights into the latest models, including number of parameters, fine-tuning datasets and techniques, and hardware specifications.
 - Practical guides for LLM alignment post-training, include dataset, benchmark datasets, efficient training libraries and techniques; also involves short insight of pre-trained LLMs. 
+- Explore from pre-training models to post-training models, interesting things you will get.
+
 
 
 ## Catalog
 
 - [Catalog](#catalog)
 - [Pre-trained Base Models](#pre-trained-base-models)
-- [What does those licences mean?](#what-does-those-licences-mean)
-- [Track of Open LLMs](#track-of-open-llms)
+- [Licences](#what-does-those-licences-mean)
+- [Open Source Aligned LLMs](#track-of-open-llms)
 - [Instruction and Conversational Datasets](#instruction-and-conversational-datasets)
 - [Pre-training Datasets](#pre-training-datasets)
-- [Efficient Training Library](#efficient-training-library)
+- [Efficient Training](#efficient-training)
+  - [Efficient Training Library](#efficient-training-library)
+  - [Typology of Efficient](#typology-of-efficient-training)
 - [Evaluation Benchmark](#evaluation-benchmark)
+- [Multi-Modal LLMs](#open-multi-modal-llms)
+- [Tool Learning](#tool-learning)
 - [Star History](#star-history)
+
 
 
 ## Pre-trained Base Models
@@ -118,18 +125,19 @@
 
 
 
-## What does those licences mean?
+## Licences
 - [Apache 2.0](https://en.wikipedia.org/wiki/Apache_License): Allows users to use the software for any purpose, to distribute it, to modify it, and to distribute modified versions of the software under the terms of the license, without concern for royalties.
 - [MIT](https://en.wikipedia.org/wiki/MIT_License): Similar to Apache 2.0 but shorter and simpler. Also, in contrast to Apache 2.0, does not require stating any significant changes to the original code.
 - [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/): Allows (i) copying and redistributing the material and (ii) remixing, transforming, and building upon the material for any purpose, even commercially. But if you do the latter, you **must distribute your contributions under the same license as the original.** (Thus, may not be viable for internal teams.)
+- [CC-By-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/): NC for non-commercial.
 - [BSD-3-Clause](https://en.wikipedia.org/wiki/BSD_licenses): This version allows unlimited redistribution for any purpose as long as its copyright notices and the license's disclaimers of warranty are maintained. 
 - [OpenRAIL-M v1](https://www.bigcode-project.org/docs/pages/model-license/): Allows royalty-free access and flexible downstream use and sharing of the model and modifications of it, and comes with a set of use restrictions (see [Attachment A](https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement))
 
 
 
-## Track of Open LLMs
+## Open Source Aligned LLMs
 
-<b style='color:blue !important;'>refactor soon...</b>
+$\color{red}{\textsf{Refactoring...}}$
 
 - 05/26: Falcon-40B, foundational LLM with 40 billion parameters trained on one trillion tokens, first place at huggingface Open LLM Leaderboard for now, 7B also released  ([blog](https://falconllm.tii.ae/), [model](https://huggingface.co/tiiuae), [Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard))
 - 05/25: BLIP-Diffusion, a BLIP multi-modal LLM pre-trained subject representation enables zero-shot subject-driven image generation, easily extended for novel applications ([tweet](https://twitter.com/LiJunnan0409/status/1661537224947810304), [blog](https://dxli94.github.io/BLIP-Diffusion-website/))
@@ -267,6 +275,7 @@
 - https://huggingface.co/datasets/Hello-SimpleAI/HC3 Human ChatGPT Comparison Corpus (HC3)
 
 
+
 ## Pre-training Datasets
 
 - the Pile
@@ -277,7 +286,10 @@
 
 
 
-## Efficient Training Library
+## Efficient Training
+
+
+### Efficient Training Library
 
 - https://github.com/CarperAI/trlx CarperAI/trlx, a distributed training framework language models with RLHF; CarperAI, StabilityAI's FOSS RLHF lab, Spun out of EleutherAI
 - https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat Microsoft DeepSpeed [example](https://github.com/microsoft/DeepSpeedExamples/blob/master/applications/DeepSpeed-Chat/README.md)
@@ -287,6 +299,34 @@
 - https://github.com/ofirpress/attention_with_linear_biases ALiBi, [Train Short, Test Long: Attention with Linear Biases (ALiBi) Enables Input Length Extrapolation], handle extremely long inputs
 - https://github.com/NVIDIA/FasterTransformer FasterTransformer, highly optimized transformer-based encoder and decoder component
 - MosaicML: [Composer](https://github.com/mosaicml/composer), [llm-foundry](https://github.com/mosaicml/llm-foundry)
+
+
+### Typology of Efficient
+
+- Data & Model Parallel
+  - Data Parallel
+  - Tensor Parallel
+  - Pipeline Paralle
+  - Zero Redundancy Optimizer(ZeRO) (DeepSpeed, often work with CPU offloading)
+  - Sharded DDP(FSDP)
+  - Mixture-of-Experts (MoE)
+
+- Param Efficient
+  - PEFT
+    - LoRA [2021/10, Microsoft]
+    - Prompt Tuning [2021/09, Google]
+    - Prefix-Tuning [2021/01, Stanford]
+    - P-tuning [2021/03, Tsinghua, Peking, BAAI]
+    - P-tuning v2 [2022/03, Tsinghua, BAAI]
+- Other
+  - Checkpointing
+  - Offloading(ZeRO)
+  - Memory Efficient Optimizers
+  - 16-bit mix precision
+  - 8-bit: bitsandbytes / triton
+  - 4-bit: gptq / ggml
+
+$\color{red}{\textsf{Refactoring...}}$ raw version here https://github.com/shm007g/LLaMA-Cult-and-More/issues/4
 
 
 
@@ -311,6 +351,25 @@
 - [GPT-4 Technical Report, OpenAI, 2023.03]
 - [Sparks of Artificial General Intelligence: Early experiments with GPT-4, MSFT, 2023.04]
 - [PaLM 2 Technical Report, Google, 2023.05]
+
+
+
+## Multi-Modal LLMs
+
+
+$\color{red}{\textsf{Planning}}$
+
+
+
+## Tool Learning
+
+$\color{red}{\textsf{Planning}}$
+
+- Plugins
+- Web Browsing
+- Planning
+- Embodied AI
+
 
 
 ## Star History
