@@ -1,5 +1,18 @@
 - Providing valuable insights into the latest models, including number of parameters, fine-tuning datasets and techniques, and hardware specifications.
-- Practical guides for LLM alignment post-training, include dataset, benchmark datasets, efficient training libraries and techniques; also involves history of pre-trained LLM. 
+- Practical guides for LLM alignment post-training, include dataset, benchmark datasets, efficient training libraries and techniques; also involves short insight of pre-trained LLMs. 
+
+
+## Catalog
+
+- [Catalog](#catalog)
+- [Pre-trained Base Models](#pre-trained-base-models)
+- [What does those licences mean?](#what-does-those-licences-mean)
+- [Track of Open LLMs](#track-of-open-llms)
+- [Instruction and Conversational Datasets](#instruction-and-conversational-datasets)
+- [Pre-training Datasets](#pre-training-datasets)
+- [Efficient Training Library](#efficient-training-library)
+- [Evaluation Benchmark](#evaluation-benchmark)
+- [Star History](#star-history)
 
 
 ## Pre-trained Base Models
@@ -21,10 +34,21 @@
 - Google: T5, mT5, LaMDA, Pathways, PaLM, UL2, Flan-T5, Flan-UL2, Bard, PaLM-E, PaLM 2, MoE, Switch Transformer, GLaM, ST-MoE, MoE Routing
 - DeepMind: Gopher, Chinchilla, Sparrow
 - Nvidia: Megatron-Turing NLG (530B)
+- AI21 Studio: Jurassic-1, Jurassic-2
+
+![A summary of large language models (A Survey of Large Language Models)](https://github.com/hollobit/GenAI_LLM_timeline/assets/998803/9a855dea-7223-4523-924e-3952b1f3734d)
+
+![LLM Family Tree](https://github.com/Mooler0410/LLMsPracticalGuide/blob/main/imgs/qr_version.jpg?raw=true)
+
+
+- [LLMsPracticalGuide](https://github.com/Mooler0410/LLMsPracticalGuide)
+- [Awesome-LLM](https://github.com/Hannibal046/Awesome-LLM)
+- [GenAI_LLM_timeline](https://github.com/hollobit/GenAI_LLM_timeline)
+- [Open-LLMs](https://github.com/eugeneyan/open-llms)
+
 
 </details>
 
-![survey-gif-test](https://github.com/Mooler0410/LLMsPracticalGuide/blob/main/imgs/qr_version.jpg?raw=true)
 
 - OpenAI
   - 2018/06, GPT-1 (117m)
@@ -39,6 +63,7 @@
   - Claude Instant: 2023/03, lighter, less expensive, and much faster option, context window 9k/100k tokens
 - Meta
   - OPT (125M/350M/1.3B/2.7B/6.7B/13B/30B/66B/175B): 2022/03, pre-trained on (datasets used in RoBERTa, the Pile, `PushShift.io` Reddit) using [metaseq](https://github.com/facebookresearch/metaseq), 1/7th the carbon footprint if GPT-3, combining Meta’s open source Fully Sharded Data Parallel (FSDP) API and NVIDIA’s tensor parallel abstraction within Megatron-LM, contain predominantly English text and a small amount of non-English data via CommonCrawl, [released](https://huggingface.co/models?search=facebook/opt) under a [noncommercial](https://ai.facebook.com/blog/democratizing-access-to-large-scale-language-models-with-opt-175b/) license.
+  - [OPT-IML](https://huggingface.co/facebook/opt-iml-30b) (30B/175B): 2022/12, create OPT-IML Bench, a large benchmark for Instruction MetaLearning (IML) of 2000 NLP tasks; train OPT-IML which are instruction-tuned versions of OPT
   - Galactica (125M/1.3B/6.7B/30B/120B): 2022/11, [facebook/galactica](https://huggingface.co/models?search=facebook/galactica) models are designed to perform scientific tasks, include prompts in pre-training alongside the general corpora, under a non-commercial CC BY-NC 4.0 license
   - **LLaMA** (7B/13B/33B/65B): 2023/02, trained LLaMA 65B/33B on 1.4 trillion tokens, LLaMA 7B on one trillion tokens, chose text from the 20 languages with the most speakers, [leaked](https://huggingface.co/decapoda-research),  under a non-commercial GPL-3.0 license.
 - huggingface BigScience
@@ -87,12 +112,24 @@
   - 2022/09, [Sparrow](https://www.deepmind.com/blog/building-safer-dialogue-agents), Building safer dialogue agents; designed to talk, answer, and search using Google, supports it with evidence
 - Nvidia
   - 2019/09, [Megatron-Turing NLG](https://developer.nvidia.com/megatron-turing-natural-language-generation) (530B), largest model trained with novel parallelism techniques of Nvidia
+- AI21 Studio
+  - [Jurassic-1](https://docs.ai21.com/docs/jurassic-1-models-legacy) (J1, 2021/08): J1-Jumbo 178B, J1-Grande 17B, J1-Large 7.5B; 250k token vocab;
+  - [Jurassic-2](https://docs.ai21.com/docs/jurassic-2-models) (J2, 2023/03): [Announcing Blog](https://www.ai21.com/blog/introducing-j2)
 
 
 
-## Keeping track of affordable LLMs
+## What does those licences mean?
+- [Apache 2.0](https://en.wikipedia.org/wiki/Apache_License): Allows users to use the software for any purpose, to distribute it, to modify it, and to distribute modified versions of the software under the terms of the license, without concern for royalties.
+- [MIT](https://en.wikipedia.org/wiki/MIT_License): Similar to Apache 2.0 but shorter and simpler. Also, in contrast to Apache 2.0, does not require stating any significant changes to the original code.
+- [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/): Allows (i) copying and redistributing the material and (ii) remixing, transforming, and building upon the material for any purpose, even commercially. But if you do the latter, you **must distribute your contributions under the same license as the original.** (Thus, may not be viable for internal teams.)
+- [BSD-3-Clause](https://en.wikipedia.org/wiki/BSD_licenses): This version allows unlimited redistribution for any purpose as long as its copyright notices and the license's disclaimers of warranty are maintained. 
+- [OpenRAIL-M v1](https://www.bigcode-project.org/docs/pages/model-license/): Allows royalty-free access and flexible downstream use and sharing of the model and modifications of it, and comes with a set of use restrictions (see [Attachment A](https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement))
 
-refactor soon...
+
+
+## Track of Open LLMs
+
+<b style='color:blue !important;'>refactor soon...</b>
 
 - 05/26: Falcon-40B, foundational LLM with 40 billion parameters trained on one trillion tokens, first place at huggingface Open LLM Leaderboard for now, 7B also released  ([blog](https://falconllm.tii.ae/), [model](https://huggingface.co/tiiuae), [Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard))
 - 05/25: BLIP-Diffusion, a BLIP multi-modal LLM pre-trained subject representation enables zero-shot subject-driven image generation, easily extended for novel applications ([tweet](https://twitter.com/LiJunnan0409/status/1661537224947810304), [blog](https://dxli94.github.io/BLIP-Diffusion-website/))
@@ -213,7 +250,7 @@ refactor soon...
 
 
 
-## Instruction and conversational datasets
+## Instruction and Conversational Datasets
 
 - https://github.com/allenai/natural-instructions AllenAI NI dataset, a collection of over 1.6K tasks and their natural language definitions/instructions, [more](https://instructions.apps.allenai.org/)
 - https://huggingface.co/datasets/bigscience/P3 BigScience P3 (Public Pool of Prompts), a collection of prompted English datasets covering 55 tasks.
@@ -221,14 +258,16 @@ refactor soon...
 - https://huggingface.co/datasets/databricks/databricks-dolly-15k Dolly v2.0 dataset by DataBricks.
 - https://huggingface.co/datasets/OpenAssistant/oasst1 OpenAssistant Conversations (OASST1), a human-generated, human-annotated assistant-style conversation corpus consisting of 161k messages in 35 different languages, annotated with 461k quality ratings, resulting in over 10,000 fully annotated conversation trees.
 - https://huggingface.co/datasets/Anthropic/hh-rlhf Anthropic Helpful and Harmless (HH-RLHF) datasets, include (1) Human preference data about helpfulness and harmlessness, (2) Human-generated and annotated red teaming dialogues
-- https://huggingface.co/datasets/jeffwan/sharegpt_vicuna
+- https://huggingface.co/datasets/mosaicml/dolly_hhrlhf MosaicMl's mix of Dolly-15K and Anthropic's HH-RLHF dataset
+- https://huggingface.co/datasets/jeffwan/sharegpt_vicuna Vicuna's ShareGPT dialogue dataset
+- https://huggingface.co/datasets/tatsu-lab/alpaca Alpaca's 50k instruction following dataset from ChatGPT
+- https://huggingface.co/datasets/WizardLM/evol_instruct_70k WizardLM's dataset
+- https://github.com/google-research/FLAN/tree/main/flan/v2 Google Flan Collection dataset
+- OPT-IML Bench use in OPT-IML training
 - https://huggingface.co/datasets/Hello-SimpleAI/HC3 Human ChatGPT Comparison Corpus (HC3)
-- https://huggingface.co/datasets/tatsu-lab/alpaca 50k instruction following dataset from ChatGPT
-- https://huggingface.co/datasets/WizardLM/evol_instruct_70k
-- https://github.com/google-research/FLAN/tree/main/flan/v2 The Flan Collection dataset
 
 
-## Pre-training datasets
+## Pre-training Datasets
 
 - the Pile
 - RedPajama-Data-1T
@@ -240,12 +279,13 @@ refactor soon...
 
 ## Efficient Training Library
 
-- CarperAI/trlx, a distributed training framework language models with RLHF
-- Microsoft/DeepSpeedChat
-- ColossalAI/ColossalChat
-- PyTorch FSDP
-- [ALiBi](https://github.com/ofirpress/attention_with_linear_biases), [Train Short, Test Long: Attention with Linear Biases (ALiBi) Enables Input Length Extrapolation], handle extremely long inputs
-- [NVIDIA/FasterTransformer](https://github.com/NVIDIA/FasterTransformer), highly optimized transformer-based encoder and decoder component
+- https://github.com/CarperAI/trlx CarperAI/trlx, a distributed training framework language models with RLHF; CarperAI, StabilityAI's FOSS RLHF lab, Spun out of EleutherAI
+- https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat Microsoft DeepSpeed [example](https://github.com/microsoft/DeepSpeedExamples/blob/master/applications/DeepSpeed-Chat/README.md)
+- https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat ColossalChat
+- https://pytorch.org/docs/stable/fsdp.html PyTorch FSDP
+- https://github.com/tloen/alpaca-lora Alpaca-LoRA
+- https://github.com/ofirpress/attention_with_linear_biases ALiBi, [Train Short, Test Long: Attention with Linear Biases (ALiBi) Enables Input Length Extrapolation], handle extremely long inputs
+- https://github.com/NVIDIA/FasterTransformer FasterTransformer, highly optimized transformer-based encoder and decoder component
 - MosaicML: [Composer](https://github.com/mosaicml/composer), [llm-foundry](https://github.com/mosaicml/llm-foundry)
 
 
@@ -267,6 +307,13 @@ refactor soon...
 - https://github.com/Hello-SimpleAI/chatgpt-comparison-detection  Human ChatGPT Comparison Corpus (HC3, 2023/01), tens of thousands of comparison responses from both human experts and ChatGPT, with questions ranging from open-domain, financial, medical, legal, and psychological areas
 - https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard 2023/05, 4 key benchmarks from the Eleuther AI Language Model Evaluation Harness
 - https://lmsys.org/blog/2023-05-25-leaderboard/ Chatbot Arena leaderboard, Elo rating leaderboard based on the 27K anonymous voting
+- https://github.com/deep-diver/LLM-As-Chatbot/tree/main/models deploy models as a chatbot service as example
 - [GPT-4 Technical Report, OpenAI, 2023.03]
 - [Sparks of Artificial General Intelligence: Early experiments with GPT-4, MSFT, 2023.04]
 - [PaLM 2 Technical Report, Google, 2023.05]
+
+
+## Star History
+
+![](https://api.star-history.com/svg?repos=shm007g/LLaMA-Cult-and-More&type=Date)
+
